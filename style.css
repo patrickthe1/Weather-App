@@ -14,6 +14,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    padding-bottom: 70px;
 }
 
 .container {
@@ -171,4 +172,28 @@ h1 {
         width: 80px;
         height: 80px;
     }
+}
+
+/* Footer Styles */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2d2d2d;
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.footer strong em {
+    color: #4a90e2;
+    font-style: italic;
+    font-weight: bold;
 }
