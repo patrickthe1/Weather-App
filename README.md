@@ -25,8 +25,7 @@ A simple and elegant weather application that allows users to check current weat
 4. Open index.html in your browser
 
 ## Screenshots
-
-[Add screenshots of your app here]
+![Weather App Screenshot](Screenshot_2025-01-11_18-15-26.png)
 
 ## Live Demo
 
