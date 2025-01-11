@@ -1,11 +1,16 @@
+// Add temperature unit state
+let isCelsius = true;
+const tempToggleBtn = document.getElementById('temp-toggle');
+
 async function getWeatherData(location) {
     // You should store your API key in a secure way in a production environment
     const apiKey = '88FUU7325848M4DGATLJ5B8YE';
     const baseUrl = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline';
+    const units = isCelsius ? 'metric' : 'us';
     
     try {
         const response = await fetch(
-            `${baseUrl}/${encodeURIComponent(location)}?unitGroup=metric&key=${apiKey}`,
+            `${baseUrl}/${encodeURIComponent(location)}?unitGroup=${units}&key=${apiKey}`,
             {
                 mode: 'cors'
             }
@@ -62,15 +67,16 @@ function displayWeatherData(weatherData) {
     iconImg.alt = weatherData.description;
     iconDiv.appendChild(iconImg);
     
-    // Add temperature
-    tempDiv.textContent = `${Math.round(weatherData.temperature)}°C`;
+    // Add temperature with correct unit
+    const unit = isCelsius ? '°C' : '°F';
+    tempDiv.textContent = `${Math.round(weatherData.temperature)}${unit}`;
     
     // Add weather description and additional info
     descDiv.innerHTML = `
         <p>${weatherData.description}</p>
-        <p>Feels like: ${Math.round(weatherData.feelsLike)}°C</p>
+        <p>Feels like: ${Math.round(weatherData.feelsLike)}${unit}</p>
         <p>Humidity: ${weatherData.humidity}%</p>
-        <p>Wind Speed: ${weatherData.windSpeed} km/h</p>
+        <p>Wind Speed: ${weatherData.windSpeed} ${isCelsius ? 'km/h' : 'mph'}</p>
     `;
 }
 
@@ -91,5 +97,25 @@ searchForm.addEventListener('submit', async (e) => {
     } catch (error) {
         console.error('Error:', error);
         alert('Error fetching weather data. Please try again.');
+    }
+});
+
+// Add temperature toggle event listener
+tempToggleBtn.addEventListener('click', async () => {
+    isCelsius = !isCelsius; // Toggle the unit
+    
+    // Update button text
+    tempToggleBtn.textContent = isCelsius ? '°C / °F' : '°F / °C';
+    
+    // If weather is currently displayed, update it
+    const location = searchInput.value.trim();
+    if (location) {
+        try {
+            const weatherData = await getWeatherData(location);
+            displayWeatherData(weatherData);
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error updating weather data. Please try again.');
+        }
     }
 });
