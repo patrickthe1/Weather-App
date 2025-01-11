@@ -2,7 +2,22 @@
 let isCelsius = true;
 const tempToggleBtn = document.getElementById('temp-toggle');
 
+// Add loading spinner functions
+function showLoading() {
+    const spinner = document.getElementById('loading-spinner');
+    const weatherContainer = document.getElementById('weather-container');
+    spinner.classList.remove('hidden');
+    weatherContainer.style.display = 'none';
+}
+
+function hideLoading() {
+    const spinner = document.getElementById('loading-spinner');
+    spinner.classList.add('hidden');
+}
+
 async function getWeatherData(location) {
+    showLoading(); // Show loading spinner
+    
     // You should store your API key in a secure way in a production environment
     const apiKey = '88FUU7325848M4DGATLJ5B8YE';
     const baseUrl = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline';
@@ -26,6 +41,8 @@ async function getWeatherData(location) {
     } catch (error) {
         console.error('Error fetching weather data:', error);
         throw error;
+    } finally {
+        hideLoading(); // Hide loading spinner regardless of success/failure
     }
 }
 
