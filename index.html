@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather App</h1>
+        <form id="search-form">
+            <input type="text" id="search-input" placeholder="Enter location">
+            <button type="submit">Search</button>
+        </form>
+        <!-- Add temperature unit toggle -->
+        <div class="unit-toggle"></div>
+            <button id="temp-toggle">°C / °F</button>
+        </div>
+        <div id="weather-container">
+            <div id="weather-icon"></div>
+            <div id="temperature"></div>
+            <div id="description"></div>
+        </div>
+    </div>
+
+</body>
+<script src="script.js" defer></script>
+</html>

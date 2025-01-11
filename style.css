@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background-color: #2d2d2d;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    font-size: 2rem;
+}
+
+/* Form Styles */
+#search-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+#search-input {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #404040;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+#search-input::placeholder {
+    color: #888888;
+}
+
+#search-form button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #4a90e2;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#search-form button:hover {
+    background-color: #357abd;
+}
+
+/* Weather Display Styles */
+#weather-container {
+    display: none;
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #363636;
+    border-radius: 12px;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 400px;
+}
+
+#weather-icon {
+    margin-bottom: 1rem;
+}
+
+#weather-icon img {
+    width: 100px;
+    height: 100px;
+}
+
+#temperature {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    color: #4a90e2;
+}
+
+#description {
+    color: #cccccc;
+}
+
+#description p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+#description p:first-child {
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+/* Temperature Toggle Button */
+.unit-toggle {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+#temp-toggle {
+    background-color: #404040;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#temp-toggle:hover {
+    background-color: #4a90e2;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+
+    #temperature {
+        font-size: 2.5rem;
+    }
+
+    #weather-icon img {
+        width: 80px;
+        height: 80px;
+    }
+}
