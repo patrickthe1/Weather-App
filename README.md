@@ -29,7 +29,7 @@ A simple and elegant weather application that allows users to check current weat
 
 ## Live Demo
 
-[Add your live demo link here]
+[https://patrickthe1.github.io/Weather-App/](https://patrickthe1.github.io/Weather-App/)
 
 ## License
 
